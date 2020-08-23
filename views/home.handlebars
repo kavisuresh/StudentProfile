@@ -1,0 +1,11 @@
+<form class="form">     
+        <a href='/add'> Add Student</a>
+        <a href='/update'> Update Student</a>
+        <a href='/api/students'> Get Students</a>
+        <a href='/get'> Get Student</a>
+        <a href='/delete'> Delete Student</a>
+</form>
+
+{{#if status }}
+<p class="error">Student id already exists, provide a valid unique id</p>
+{{/if }}

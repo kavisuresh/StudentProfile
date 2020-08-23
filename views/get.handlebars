@@ -1,0 +1,22 @@
+<form action='/get' method='GET' id="form">     
+        <table>
+        <tr><td><label for="id">ID</label></td>
+        <td><input type="text" id='id' name='id' value=''/></td></tr>
+        </table>
+        <button class="btn" type="submit">Get Student</button>  
+</form>
+
+{{#if init}}
+<table border=1>
+<td>ID</td><td>Name</td><td>Age</td><td>Stream</td>
+     <tr>
+     <td>{{ data.id }}</td><td>{{ data.name }}</td><td>{{ data.age }}</td><td>{{ data.stream}}</td>
+     </tr>
+</table>
+{{/if}}
+
+
+{{#if no_id}}
+Student with id {{ id }} not found
+{{/if}}
+

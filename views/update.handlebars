@@ -1,0 +1,30 @@
+<form action='/update' method='GET' id="form">     
+        <table>
+        <tr><td><label for="id">ID</label></td>
+        <td><input type="text" id='id' name='id' value=''/></td></tr>
+        </table>
+        <button class="btn" type="submit">Get Student details for Update</button>  
+</form>
+
+{{#if init}}
+<form action='api/students' method='POST' id="form">     
+        <table>
+        <tr><td><label for="id">ID</label></td>
+        <td><input type="text" id='id' name='id' value='{{ data.id }} '/></td></tr>
+        <tr><td><label for="name">Name</label></td>
+        <td><input type="text" id='name' name="name"  value='{{ data.name }}'/></td></tr> 
+        <tr><td><label for="name">Age</label></td>
+        <td><input type="text" id='age' name="age"  value='{{ data.age }}'/></td></tr>
+        <tr><td><label for="name">Stream</label></td>
+        <td><input type="text" id='stream' name="stream"  value='{{ data.stream }}'/></td></tr>
+        </table>
+        <button class="btn" type="submit">Update Student</button>  
+</form>
+{{/if}}
+
+
+{{#if no_id}}
+Student with id {{ id }} not found
+{{/if}}
+
+

@@ -5,8 +5,16 @@ const { MongoClient } = require('mongodb');
 
 const mongo_host = process.env.MONGO_HOST || 'localhost';
 const mongo_port = process.env.MONGO_PORT || 27017;
+const mongo_user = process.env.MONGODB_USER;
+const mongo_password = process.env.MONGODB_PASSWORD;
+const mongo_database = process.env.MONGODB_DATABASE || 'student'
+let  mongo_url ="";
 
-const mongo_url = `mongodb://${mongo_host}:${mongo_port}/student`;
+if ( mongo_host === 'localhost'){
+    mongo_url = `mongodb://${mongo_host}:${mongo_port}/${mongo_database}`;
+}else {
+    mongo_url = `mongodb://${mongo_user}:${mongo_password}@${mongo_host}:${mongo_port}/${mongo_database}`;
+}
 
 router.get('/',(req,res) => {
 
