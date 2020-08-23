@@ -3,17 +3,17 @@ const router = express.Router();
 const path= require('path');
 const { MongoClient } = require('mongodb');
 
-const mongo_host = process.env.MONGO_HOST || 'localhost';
 const mongo_port = process.env.MONGO_PORT || 27017;
 const mongo_user = process.env.MONGODB_USER;
 const mongo_password = process.env.MONGODB_PASSWORD;
 const mongo_database = process.env.MONGODB_DATABASE || 'student'
+const mongodb_service = process.env.DATABASE_SERVICE_NAME || 'localhost';
 let  mongo_url ="";
 
-if ( mongo_host === 'localhost'){
-    mongo_url = `mongodb://${mongo_host}:${mongo_port}/${mongo_database}`;
+if ( mongodb_service === 'localhost'){
+    mongo_url = `mongodb://${mongodb_service}:${mongo_port}/${mongo_database}`;
 }else {
-    mongo_url = `mongodb://${mongo_user}:${mongo_password}@${mongo_host}:${mongo_port}/${mongo_database}`;
+    mongo_url = `mongodb://${mongo_user}:${mongo_password}@${mongodb_service}/${mongo_database}`;
 }
 
 router.get('/',(req,res) => {
